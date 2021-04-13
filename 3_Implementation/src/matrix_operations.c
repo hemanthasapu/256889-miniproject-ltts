@@ -8,6 +8,12 @@ void free_matrix_structure(mat *m){
     free(m->result);
 }
 
+void dynamic_alloc_mat(float **matrix,int n){
+    matrix = (float **)calloc(n,sizeof(float));
+    for(int i=0;i<n;i++){
+        matrix[i] = (float *)calloc(n,sizeof(float));
+    }
+}
 float ** alloc_input_matrix(float **matrix,int n){
     int i,j;
     matrix = (float **)calloc(n,sizeof(float));
@@ -20,7 +26,7 @@ float ** alloc_input_matrix(float **matrix,int n){
     for(i = 0; i < n; i++){
         for(j = 0; j < n; j++){
             scanf("%f", &element);
-            **(matrix + i*n + j) = element;
+            matrix[i][j]= element;
         }
     }
     return matrix;
@@ -32,28 +38,30 @@ void output_matrix(float **matrix,int n){
     for(i = 0; i < n; i++){
         for(j = 0; j < n; j++){
             //x = **(matrix + i*n + j);
-            printf("%f", (matrix + i*n + j));
+            printf("%f ", matrix[i][j]);
         }
+        printf("\n");
     }
 }
 
-/*
 
-void add_matrices(mat *addm, int n){
+
+float ** add_matrices(float **matrix1,float **matrix2, int n){
     int i,j;
-    float mat1[10][10];
-    float mat2[10][10];
-    float result[10][10];
+    float **result;
+    result = (float **)calloc(n,sizeof(float));
+    for(int i=0;i<n;i++){
+        result[i] = (float *)calloc(n,sizeof(float));
+    }
     for(i = 0; i < n; i++){
         for(j = 0; j < n; j++){
-            mat1[i][j] = *(addm->matrix_1 + i*n + j);
-            mat2[i][j] = *(addm->matrix_2 + i*n + j);
-            result[i][j] = mat1[i][j] + mat2[i][j];
-            *(addm->matrix_result + i*n + j) = result[i][j];
+            result[i][j] = matrix1[i][j] + matrix2[i][j];
         }
     }
-        
+    return result;
+    free(result);
 }
+/*
 float determinant(float *matrix,int n)
     {
     float ratio, det;

@@ -72,16 +72,14 @@ void calculator_menu(void)
             getchar();
             break;
         case ADD:
-            operands.matrix_result = (float **)calloc(n,sizeof(float));
-            for(int i=0;i<n;i++){
-            operands.matrix_result[i] = (float *)calloc(n,sizeof(float));
-        }
-            //add_matrices(&operands,n);
-            printf("The sum of the matrices is: ");
+            dynamic_alloc_mat(operands.matrix_result,n);
+            operands.matrix_result = add_matrices(operands.matrix_1,operands.matrix_2,n);
+            printf("The sum of the matrices is: \n");
             output_matrix(operands.matrix_result,n);
             free_matrix_structure(&operands);
             break;
         case EXIT:
+            free_matrix_structure(&operands);
             exit(0);
             break;
         default:

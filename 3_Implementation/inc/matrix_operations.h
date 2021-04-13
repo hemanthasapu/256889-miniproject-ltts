@@ -24,12 +24,20 @@ float *result;
 }mat;
 
 /**
- * @brief Inputting the matrix
+ * @brief 
  * 
  * @param matrix 
+ * @param n 
+ * @return float** 
  */
 float ** alloc_input_matrix(float **matrix, int n);
-
+/**
+ * @brief Dynamically allocate memory for matrix
+ * 
+ * @param matrix 
+ * @param n 
+ */
+void dynamic_alloc_mat(float **matrix,int n);
 /**
  * @brief To print the matrix on the screen
  * 
@@ -46,12 +54,14 @@ void output_matrix(float **matrix,int n);
 void free_matrix_structure(mat *m);
 
 /**
- * @brief 
+ * @brief Sum of matrices
  * 
- * @param addm 
+ * @param matrix1 
+ * @param matrix2 
  * @param n 
+ * @return float** 
  */
-void add_matrices(mat *addm,int n);
+float ** add_matrices(float **matrix1,float **matrix2,int n);
 
 
 /**
@@ -60,7 +70,7 @@ void add_matrices(mat *addm,int n);
  * @param matrix 
  * @return float 
  */
-float determinant(float *matrix,int n);
+float determinant(float **matrix,int n);
 
 
 
