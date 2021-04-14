@@ -1,6 +1,7 @@
-# SDLC Activity Based Learning
+# MATRIX CALCULATOR
+### Miniproject 
 
-Visit [Pages for Report -optional](using github.io option)
+
 
 Build | Code Quality | Unity | [Git Inspector](using github.io option)
 ------|----------|-------|--------------
@@ -24,10 +25,10 @@ PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No Test Case
 
 ## Challenges Faced and How Was It Overcome
 
-1. ABC
-2. BCD
-3. ...
-4. ...
+1. Dynamic memory allocation of 2D arrays
+2. The calculation of various matrix operations
+3. Executable file crashing because of segmentation fault
+4. All of them have been overcome by peer help and searching for resources which showed the proper syntax for dynamic memory allocation.
 
 ## Learning Resources
 1. [markdownCheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
