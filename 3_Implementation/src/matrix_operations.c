@@ -186,7 +186,7 @@ float ** inverse(float **num, int f)
             }
         }
       }
-      fac[q][p] = pow(-1, q + p) * determinant(b, f - 1);
+      fac[q][p] = power( q + p) * determinant(b, f - 1);
     }
   }
 
@@ -226,3 +226,12 @@ float ** transpose(float **matrix,int n){
 }
 
 
+float power(int exp){
+    float result=1;
+    while(exp != 0){
+        result*=(-1);
+        exp--;
+    }
+    return result;
+
+}

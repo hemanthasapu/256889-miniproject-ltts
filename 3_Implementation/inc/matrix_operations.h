@@ -112,5 +112,11 @@ float ** transpose(float **matrix,int n);
  */
 float ** inverse(float **num, int f);
 
-
+/**
+ * @brief Power of minus one
+ * 
+ * @param exp 
+ * @return float 
+ */
+float power(int exp);
 #endif  /* #define __MATRIX_OPERATIONS_H__ */
