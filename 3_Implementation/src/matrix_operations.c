@@ -1,5 +1,5 @@
-#include <matrix_operations.h>
-
+#include "matrix_operations.h"
+#include <math.h>
 
 void free_matrix_structure(mat *m){
     free(m->matrix_1);
