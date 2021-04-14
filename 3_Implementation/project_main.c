@@ -11,7 +11,7 @@ unsigned int matrixcalc_operation = 0;
 int n;
 mat operands;
 /* Valid operations */
-enum operations{ DET=1,ADD,EXIT };
+enum operations{ DET=1,ADD,SUB,MUL,TRN,INV,EXIT };
 
 /* Display the menu of operations supported */
 void calculator_menu(void);
@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
 
 void calculator_menu(void)
 {
-    printf("\nAvailable Operations\n");
-    printf("\n1. Determinant\n2. Addition of matrices\n3. Exit");
+    printf("\nPress a key to select the appropriate operation\n");
+    printf("\n1. Determinant\n2. Addition of matrices\n3. Subtraction of matrices\n4. Product of matrices\n5. Transpose of a matrix\n6. Inverse of a matrix\n7. Exit");
     printf("\n\tEnter your choice\n");
    
      // __fpurge(stdin);
@@ -51,7 +51,7 @@ void calculator_menu(void)
         printf("Enter order of matrix: ");
         scanf("%d", &n);
         operands.matrix_1 = alloc_input_matrix(operands.matrix_1,n);
-        if(matrixcalc_operation != DET){
+        if(((matrixcalc_operation != DET )&&(matrixcalc_operation != TRN )&&(matrixcalc_operation != INV))){
             operands.matrix_2 = alloc_input_matrix(operands.matrix_2,n);
         }
     }
@@ -66,10 +66,8 @@ void calculator_menu(void)
     switch(matrixcalc_operation)
     {
         case DET:
-            //printf("Determinant of the matrix is: %f",determinant(operands.matrix_1,n));
-            output_matrix(operands.matrix_1,n);
-            // __fpurge(stdin);
-            getchar();
+            operands.result = determinant(operands.matrix_1,n);
+            printf("Determinant of the matrix is: %f \n\n\n",operands.result);
             break;
         case ADD:
             dynamic_alloc_mat(operands.matrix_result,n);
@@ -77,6 +75,39 @@ void calculator_menu(void)
             printf("The sum of the matrices is: \n");
             output_matrix(operands.matrix_result,n);
             free_matrix_structure(&operands);
+            break;
+        case SUB:
+            dynamic_alloc_mat(operands.matrix_result,n);
+            operands.matrix_result = subtract_matrices(operands.matrix_1,operands.matrix_2,n);
+            printf("The differences of the matrices is: \n");
+            output_matrix(operands.matrix_result,n);
+            free_matrix_structure(&operands);
+            break;
+        case MUL:
+            dynamic_alloc_mat(operands.matrix_result,n);
+            operands.matrix_result = product_matrices(operands.matrix_1,operands.matrix_2,n);
+            printf("The product of the matrices is: \n");
+            output_matrix(operands.matrix_result,n);
+            free_matrix_structure(&operands);
+            break;
+        case TRN:
+            dynamic_alloc_mat(operands.matrix_result,n);
+            operands.matrix_result = transpose(operands.matrix_1,n);
+            printf("The transpose of the matrix is: \n");
+            output_matrix(operands.matrix_result,n);
+            free_matrix_structure(&operands);
+            break;
+        case INV:
+            dynamic_alloc_mat(operands.matrix_result,n);
+            if(determinant(operands.matrix_1,n) == 0.00){
+                printf("Inverse cannot be found..! \n");
+            }
+            else{
+                operands.matrix_result = inverse(operands.matrix_1,n);
+                printf("The inverse of the matrix is: \n");
+                output_matrix(operands.matrix_result,n);
+                free_matrix_structure(&operands);
+            }
             break;
         case EXIT:
             free_matrix_structure(&operands);
