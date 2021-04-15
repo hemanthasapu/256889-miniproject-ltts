@@ -208,8 +208,8 @@ error_t inverse(float **num, int f)
         invers[i][j] = transp[i][j] / d;
         }
     }
-  printf("The inverse of the matrix is: \n");
-    output_matrix(invers,n);
+    printf("Inverse is :\n");
+    output_matrix(invers,f);
   free(b);
   free(fac);
   free(transp);
