@@ -18,10 +18,19 @@ Folder             | Description
 
 ## Contributors List and Summary
 
-PS No. |  Name   |    Features    | Issuess Raised |Issues Resolved|No Test Cases|Test Case Pass
+SF Id. |  Name   |    Features    | Issuess Raised |Issues Resolved|No Test Cases|Test Case Pass
 -------|---------|----------------|----------------|---------------|-------------|--------------
-`ABC` | 12345678  | Feature A, B etc    | X No     | X No   |X No   |X No     
-`DEF` | 12345678  | Feature C, D etc    | X No     | X No   |X No   |X No     
+`256889` | Hemanth A | F_01, F_02, F_03, F_04, F_05, F_06, F_07, F_08, F_09   | 10     | 7   |7  |7    
+
+| Feature Id | Feature |
+| -----------|---------|
+|F_01| Options to select matrix operation|
+|F_02| Operations on two matrices such as addition, subtraction and multiplication are included|
+|F_03| Single matrix operations such as determinant, transpose and inverse of a matrix |
+|F_04| Separate function for each operation |
+|F_05| A structure has been implemented for storing the matrices|
+|F_06| Dynamic memory allocation and deallocation has been implemented for the matrices|
+|F_07|  There is no upper limit for the size of the matrix|
 
 ## Challenges Faced and How Was It Overcome
 
