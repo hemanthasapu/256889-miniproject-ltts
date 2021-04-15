@@ -46,9 +46,10 @@ void output_matrix(float **matrix,int n){
 
 
 
-float ** add_matrices(float **matrix1,float **matrix2, int n){
+error_t add_matrices(float **matrix1,float **matrix2, int n){
     int i,j;
     float **result;
+
     result = (float **)calloc(n,sizeof(float));
     for(int i=0;i<n;i++){
         result[i] = (float *)calloc(n,sizeof(float));
@@ -58,11 +59,15 @@ float ** add_matrices(float **matrix1,float **matrix2, int n){
             result[i][j] = matrix1[i][j] + matrix2[i][j];
         }
     }
-    return result;
+
+    printf("The sum of the matrices is: \n");
+    output_matrix(result,n);
     free(result);
+    return SUCCESS;
+
 }
 
-float ** subtract_matrices(float **matrix1,float **matrix2, int n){
+error_t subtract_matrices(float **matrix1,float **matrix2, int n){
     int i,j;
     float **result;
     result = (float **)calloc(n,sizeof(float));
@@ -74,11 +79,13 @@ float ** subtract_matrices(float **matrix1,float **matrix2, int n){
             result[i][j] = matrix1[i][j] - matrix2[i][j];
         }
     }
-    return result;
+    printf("The difference of the matrices is: \n");
+    output_matrix(result,n);
     free(result);
+    return SUCCESS;
 }
 
-float ** product_matrices(float **matrix1,float **matrix2, int n){
+error_t product_matrices(float **matrix1,float **matrix2, int n){
     int i,j,k;
     float **result;
     result = (float **)calloc(n,sizeof(float));
@@ -93,8 +100,11 @@ float ** product_matrices(float **matrix1,float **matrix2, int n){
             }
     }
     }
-    return result;
+    
+    printf("The product of the matrices is: \n");
+    output_matrix(result,n);
     free(result);
+    return SUCCESS;
 }
 
 
@@ -145,7 +155,7 @@ float determinant(float **matrix,int k)
     free(b);
 }
 
-float ** inverse(float **num, int f)
+error_t inverse(float **num, int f)
 {
  float **b, **fac,**transp, **invers, d;
 
@@ -199,11 +209,13 @@ float ** inverse(float **num, int f)
         invers[i][j] = transp[i][j] / d;
         }
     }
-  return invers;
+    printf("The inverse of the matrix is: \n");
+    output_matrix(invers,n);
   free(b);
   free(fac);
   free(transp);
   free(invers);
+  return SUCCESS;
 }
 
 

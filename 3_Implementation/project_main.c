@@ -10,6 +10,7 @@ unsigned int matrixcalc_operation = 0;
 /* Operands on which calculation is performed */
 int n;
 mat operands;
+error_t err;
 /* Valid operations */
 enum operations{ DET=1,ADD,SUB,MUL,TRN,INV,EXIT };
 
@@ -70,24 +71,15 @@ void calculator_menu(void)
             printf("Determinant of the matrix is: %f \n\n\n",operands.result);
             break;
         case ADD:
-            dynamic_alloc_mat(operands.matrix_result,n);
-            operands.matrix_result = add_matrices(operands.matrix_1,operands.matrix_2,n);
-            printf("The sum of the matrices is: \n");
-            output_matrix(operands.matrix_result,n);
+            err = add_matrices(operands.matrix_1,operands.matrix_2,n);
             free_matrix_structure(&operands);
             break;
         case SUB:
-            dynamic_alloc_mat(operands.matrix_result,n);
-            operands.matrix_result = subtract_matrices(operands.matrix_1,operands.matrix_2,n);
-            printf("The differences of the matrices is: \n");
-            output_matrix(operands.matrix_result,n);
+            err = subtract_matrices(operands.matrix_1,operands.matrix_2,n);
             free_matrix_structure(&operands);
             break;
         case MUL:
-            dynamic_alloc_mat(operands.matrix_result,n);
-            operands.matrix_result = product_matrices(operands.matrix_1,operands.matrix_2,n);
-            printf("The product of the matrices is: \n");
-            output_matrix(operands.matrix_result,n);
+            err = product_matrices(operands.matrix_1,operands.matrix_2,n);
             free_matrix_structure(&operands);
             break;
         case TRN:
@@ -98,14 +90,11 @@ void calculator_menu(void)
             free_matrix_structure(&operands);
             break;
         case INV:
-            dynamic_alloc_mat(operands.matrix_result,n);
             if(determinant(operands.matrix_1,n) == 0.00){
                 printf("Inverse cannot be found..! \n");
             }
             else{
-                operands.matrix_result = inverse(operands.matrix_1,n);
-                printf("The inverse of the matrix is: \n");
-                output_matrix(operands.matrix_result,n);
+                err = inverse(operands.matrix_1,n);
                 free_matrix_structure(&operands);
             }
             break;

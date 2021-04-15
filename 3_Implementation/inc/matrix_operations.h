@@ -16,6 +16,12 @@
 
 
 /**
+ * @brief Enum for success or failure of test case
+ * 
+ */
+typedef enum{SUCCESS=1,FAILURE=0}error_t;
+
+/**
  * @brief A structure containing matrix elements
  * 
  */
@@ -59,14 +65,14 @@ void output_matrix(float **matrix,int n);
 void free_matrix_structure(mat *m);
 
 /**
- * @brief Sum of matrices
+ * @brief 
  * 
  * @param matrix1 
  * @param matrix2 
  * @param n 
- * @return float** 
+ * @return error_t 
  */
-float ** add_matrices(float **matrix1,float **matrix2,int n);
+error_t add_matrices(float **matrix1,float **matrix2,int n);
 
 /**
  * @brief To find the difference of the matrices
@@ -74,18 +80,18 @@ float ** add_matrices(float **matrix1,float **matrix2,int n);
  * @param matrix1 
  * @param matrix2 
  * @param n 
- * @return float** 
+ * @return error_t 
  */
-float ** subtract_matrices(float **matrix1,float **matrix2, int n);
+error_t subtract_matrices(float **matrix1,float **matrix2, int n);
 /**
  * @brief To find the product of the matrices
  * 
  * @param matrix1 
  * @param matrix2 
  * @param n 
- * @return float** 
+ * @return error_t
  */
-float ** product_matrices(float **matrix1,float **matrix2, int n);
+error_t product_matrices(float **matrix1,float **matrix2, int n);
 /**
  * @brief To find the determinant of the matrix
  * 
@@ -108,9 +114,9 @@ float ** transpose(float **matrix,int n);
  * 
  * @param num 
  * @param f 
- * @return float** 
+ * @return error_t 
  */
-float ** inverse(float **num, int f);
+error_t inverse(float **num, int f);
 
 /**
  * @brief Power of minus one
@@ -119,4 +125,6 @@ float ** inverse(float **num, int f);
  * @return float 
  */
 float power(int exp);
+
+
 #endif  /* #define __MATRIX_OPERATIONS_H__ */

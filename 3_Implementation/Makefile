@@ -18,10 +18,6 @@ TEST_OUTPUT = Test_$(PROJECT_NAME).out
 INC	= -Iinc\
 -Iunity\
 
-#Library Includes
-#if working with CUnit 
-#INCLUDE_LIBS = -lcunit
-#INCLUDE_LIBS =
 
 # Project Output name
 PROJECT_OUTPUT = $(PROJECT_NAME).out
@@ -42,9 +38,7 @@ all: $(SRC) $(BUILD)
 run:$(PROJECT_NAME)
 	./$(PROJECT_OUTPUT)
 
-# Document the code using Doxygen
-#doc:
-#	make -C ./documentation
+
 
 # Build and run the unit tests
 test:$(BUILD)
