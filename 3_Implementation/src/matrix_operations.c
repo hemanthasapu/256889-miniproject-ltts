@@ -195,13 +195,12 @@ error_t inverse(float **num, int f)
             }
         }
       }
-      fac[q][p] = power( q + p) * determinant(b, f - 1);
+      fac[q][p] = power(q + p) * determinant(b, f - 1);
     }
   }
 
   d = determinant(num, f);
   transp = trans(fac,f);
-
   for (i = 0;i < f; i++)
     {
      for (j = 0;j < f; j++)
@@ -209,7 +208,7 @@ error_t inverse(float **num, int f)
         invers[i][j] = transp[i][j] / d;
         }
     }
-    printf("The inverse of the matrix is: \n");
+  printf("The inverse of the matrix is: \n");
     output_matrix(invers,n);
   free(b);
   free(fac);
@@ -217,6 +216,10 @@ error_t inverse(float **num, int f)
   free(invers);
   return SUCCESS;
 }
+
+
+
+
 
 error_t transpose(float **matrix,int n){
     float **result;
