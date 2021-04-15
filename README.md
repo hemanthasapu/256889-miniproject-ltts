@@ -34,9 +34,9 @@ SF Id. |  Name   |    Features    | Issuess Raised |Issues Resolved|No Test Case
 
 ## Challenges Faced and How Was It Overcome
 
-1. Dynamic memory allocation of 2D arrays
-2. The calculation of various matrix operations
-3. Executable file crashing because of segmentation fault
-4. All of them have been overcome by peer help and searching for resources which showed the proper syntax for dynamic memory allocation.
-
-
+| No. | Challenge | Solution
+|-----|-----------|--------
+|1. | Dynamic memory allocation of 2D arrays created segmentation faults| running the code in GDB helped find the line where the program crashes
+|2. | Program crashes | Writing clean code with allocating and deallocating memory at all functions as per requirement|
+|3. | Logical errors faced while designing matrix operations| Referred some articles to revise matrix basics and operations on 2D arrays
+|4. | Unit testing on dynamic 2D array outputs| Created enumerated variables to be returned by those functions if the specified operation executes successfully
