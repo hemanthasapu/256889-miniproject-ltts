@@ -23,7 +23,7 @@ INC	= -Iinc\
 PROJECT_OUTPUT = $(PROJECT_NAME).out
 
 # Document files
-DOCUMENTATION_OUTPUT = documentation/html
+DOCUMENTATION_OUTPUT = doc/html
 
 # Default target built
 $(PROJECT_NAME):all

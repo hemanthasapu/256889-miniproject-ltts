@@ -1,3 +1,13 @@
+/**
+ * @file project_main.c
+ * @author Hemanth A (hemanth.ec17@bmsce.ac.in)
+ * @brief  This is the main program where the project is run
+ * @version 0.1
+ * @date 2021-04-15
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "matrix_operations.h"
 
 /* Status of the operation requested */
@@ -11,6 +21,8 @@ unsigned int matrixcalc_operation = 0;
 int n;
 mat operands;
 error_t err;
+
+
 /* Valid operations */
 enum operations{ DET=1,ADD,SUB,MUL,TRN,INV,EXIT };
 
@@ -21,6 +33,13 @@ int valid_operation(int operation);
 
 
 /* Start of the application */
+/**
+ * @brief Main program
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char *argv[])
 {
     printf("\n****WELCOME TO THE MATRIX OPERATIONS PROGRAM****\n");
@@ -30,6 +49,10 @@ int main(int argc, char *argv[])
     }
 }
 
+/**
+ * @brief A basic function which has the functionalities to input the matrices and print the respective output with choice
+ * 
+ */
 void calculator_menu(void)
 {
     printf("\nPress a key to select the appropriate operation\n");
@@ -104,6 +127,12 @@ void calculator_menu(void)
     }
 }
 
+/**
+ * @brief A function to check if the entered number is within the limits of the set of operations specified
+ * 
+ * @param operation 
+ * @return int 
+ */
 int valid_operation(int operation)
 {
     /* Check if the operation is a valid operation */
