@@ -2,7 +2,7 @@
 
 ## High Level Design 
 
-#Architectural Diagram
+### Architectural Diagram
 ![Architecture](https://github.com/hemanthasapu/256889-miniproject-ltts/blob/main/2_Design/Flowchart.png)
 ![HighLevelBehaviouralDiagram](Link to Pic)
 
