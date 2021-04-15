@@ -200,14 +200,7 @@ error_t inverse(float **num, int f)
   }
 
   d = determinant(num, f);
-  
-   for (i = 0;i < f; i++)
-    {
-     for (j = 0;j < f; j++)
-       {
-         transp[i][j] = fac[j][i];
-        }
-    }
+  transp = trans(fac,f);
 
   for (i = 0;i < f; i++)
     {
@@ -247,6 +240,25 @@ error_t transpose(float **matrix,int n){
     
 }
 
+float ** trans(float **matrix,int n){
+float **result;
+    int i,j;
+    result = (float **)calloc(n,sizeof(float));
+    for(int i=0;i<n;i++){
+        result[i] = (float *)calloc(n,sizeof(float));
+    }
+    for (i = 0;i < n; i++)
+    {
+     for (j = 0;j < n; j++)
+       {
+         result[i][j] = matrix[j][i];
+        }
+    }
+    return result;
+    free(result);
+
+
+}
 
 float power(int exp){
     float result=1;
