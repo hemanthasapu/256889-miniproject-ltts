@@ -41,6 +41,13 @@ void test_inv_mat(void);
  */
 void test_pow(void);
 
+/**
+ * @brief Testing function for transpose of a matrix
+ * 
+ */
+void test_transp_mat(void);
+
+
 /* Required by the unity test framework */
 void setUp(){}
 /* Required by the unity test framework */
@@ -59,6 +66,7 @@ int main()
   RUN_TEST(test_pow);
   RUN_TEST(test_det_mat);
   RUN_TEST(test_inv_mat);
+  RUN_TEST(test_transp_mat);
 
 
   /* Close the Unity Test Framework */
@@ -201,5 +209,28 @@ void test_pow(void){
 
   TEST_ASSERT_EQUAL(1,power(2));
   TEST_ASSERT_EQUAL(-1,power(3));
+
+}
+
+void test_transp_mat(void){
+    float **test_mat1;
+    test_mat1 = (float **)calloc(3,sizeof(float));
+    for(int i=0;i<3;i++){
+        test_mat1[i] = (float *)calloc(3,sizeof(float));
+    }
+
+  test_mat1[0][0] = 3;
+  test_mat1[0][1] = 5;
+  test_mat1[0][2] = 2;
+  test_mat1[1][0] = 1;
+  test_mat1[1][1] = 5;
+  test_mat1[1][2] = 8;
+  test_mat1[2][0] = 3;
+  test_mat1[2][1] = 9;
+  test_mat1[2][2] = 2;
+
+TEST_ASSERT_EQUAL(SUCCESS,transpose(test_mat1,3));
+
+free(test_mat1);
 
 }

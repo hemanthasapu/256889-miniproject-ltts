@@ -4,7 +4,6 @@
 void free_matrix_structure(mat *m){
     free(m->matrix_1);
     free(m->matrix_2);
-    free(m->matrix_result);
 }
 
 void dynamic_alloc_mat(float **matrix,int n){
@@ -100,7 +99,7 @@ error_t product_matrices(float **matrix1,float **matrix2, int n){
             }
     }
     }
-    
+
     printf("The product of the matrices is: \n");
     output_matrix(result,n);
     free(result);
@@ -201,7 +200,15 @@ error_t inverse(float **num, int f)
   }
 
   d = determinant(num, f);
-  transp = transpose(fac,f);
+  
+   for (i = 0;i < f; i++)
+    {
+     for (j = 0;j < f; j++)
+       {
+         transp[i][j] = fac[j][i];
+        }
+    }
+
   for (i = 0;i < f; i++)
     {
      for (j = 0;j < f; j++)
@@ -218,8 +225,7 @@ error_t inverse(float **num, int f)
   return SUCCESS;
 }
 
-
-float ** transpose(float **matrix,int n){
+error_t transpose(float **matrix,int n){
     float **result;
     int i,j;
     result = (float **)calloc(n,sizeof(float));
@@ -233,8 +239,12 @@ float ** transpose(float **matrix,int n){
          result[i][j] = matrix[j][i];
         }
     }
-    return result;
+
+    printf("The Transpose of the matrix is: \n");
+    output_matrix(result,n);
     free(result);
+    return SUCCESS;
+    
 }
 
 

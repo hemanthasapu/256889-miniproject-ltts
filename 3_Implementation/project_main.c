@@ -83,10 +83,7 @@ void calculator_menu(void)
             free_matrix_structure(&operands);
             break;
         case TRN:
-            dynamic_alloc_mat(operands.matrix_result,n);
-            operands.matrix_result = transpose(operands.matrix_1,n);
-            printf("The transpose of the matrix is: \n");
-            output_matrix(operands.matrix_result,n);
+            err = transpose(operands.matrix_1,n);
             free_matrix_structure(&operands);
             break;
         case INV:

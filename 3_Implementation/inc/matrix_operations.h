@@ -29,7 +29,6 @@ typedef struct{
 
 float **matrix_1;
 float **matrix_2;
-float **matrix_result;
 float result;
 
 }mat;
@@ -42,6 +41,7 @@ float result;
  * @return float** 
  */
 float ** alloc_input_matrix(float **matrix, int n);
+
 /**
  * @brief Dynamically allocate memory for matrix
  * 
@@ -49,6 +49,7 @@ float ** alloc_input_matrix(float **matrix, int n);
  * @param n 
  */
 void dynamic_alloc_mat(float **matrix,int n);
+
 /**
  * @brief To print the matrix on the screen
  * 
@@ -105,9 +106,9 @@ float determinant(float **matrix,int k);
  * 
  * @param matrix 
  * @param n 
- * @return float** 
+ * @return error_t
  */
-float ** transpose(float **matrix,int n);
+error_t transpose(float **matrix,int n);
 
 /**
  * @brief To find the inverse of a matrix
