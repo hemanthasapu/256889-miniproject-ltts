@@ -55,7 +55,7 @@ A user who is working on a laptop or a desktop who would be working on matrix ba
 ## High Level Requirements: 
 | ID | Description | Category | Status | 
 | ----- | ----- | ------- | ---------|
-| HR01 | User shall be able to specify the size of the matrix | IMPLEMENTED |
+| HR01 | User shall be able to specify the size of the matrix |Technical| IMPLEMENTED |
 | HR02 | User shall be able to add the matrices| Techincal | IMPLEMENTED | 
 | HR03 | User shall be able to subtract the matrices| Techincal |  IMPLEMENTED  |
 | HR04 | User shall be able to multiply the matrices | Techincal |  IMPLEMENTED  |
