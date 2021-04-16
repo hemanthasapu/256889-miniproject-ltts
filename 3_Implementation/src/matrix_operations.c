@@ -179,8 +179,8 @@ float determinant(float **matrix,int k)
 
     float s = 1, det = 0, **b;
     b = (float **)calloc(k,sizeof(float));
-    for(int i=0;i<k;i++){
-        b[i] = (float *)calloc(k,sizeof(float));
+    for(int ai=0;ai<k;ai++){
+        b[ai] = (float *)calloc(k,sizeof(float));
     }
   int i, j, m, n, c;
   if (k == 1)
@@ -216,9 +216,9 @@ float determinant(float **matrix,int k)
           s = -1 * s;
           }
     }
- 
-    return (det);
     free(b);
+    return (det);
+    
 }
 
 /**
@@ -230,15 +230,15 @@ float determinant(float **matrix,int k)
  */
 error_t inverse(float **num, int f)
 {
- float **b, **fac,**transp, **invers, d;
+ float **matb, **fac,**transp, **invers, d;
 
     int mem;
-    b = (float **)calloc(f,sizeof(float));
+    matb = (float **)calloc(f,sizeof(float));
     fac = (float **)calloc(f,sizeof(float));
     transp = (float **)calloc(f,sizeof(float));
     invers = (float **)calloc(f,sizeof(float));
     for(int mem=0;mem<f;mem++){
-        b[mem] = (float *)calloc(f,sizeof(float));
+        matb[mem] = (float *)calloc(f,sizeof(float));
         fac[mem] = (float *)calloc(f,sizeof(float));
         transp[mem] = (float *)calloc(f,sizeof(float));
         invers[mem] = (float *)calloc(f,sizeof(float));
@@ -258,7 +258,7 @@ error_t inverse(float **num, int f)
         {
           if (i != q && j != p)
           {
-            b[m][n] = num[i][j];
+            matb[m][n] = num[i][j];
             if (n < (f - 2))
              n++;
             else
@@ -269,12 +269,19 @@ error_t inverse(float **num, int f)
             }
         }
       }
-      fac[q][p] = power(q + p) * determinant(b, f - 1);
+      fac[q][p] = power(q + p) * determinant(matb, f - 1);
     }
   }
 
   d = determinant(num, f);
-  transp = trans(fac,f);
+    for (i = 0;i < f; i++)
+    {
+     for (j = 0;j < f; j++)
+       {
+         transp[i][j] = fac[j][i];
+        }
+    }
+
   for (i = 0;i < f; i++)
     {
      for (j = 0;j < f; j++)
@@ -284,7 +291,7 @@ error_t inverse(float **num, int f)
     }
     printf("Inverse is :\n");
     output_matrix(invers,f);
-  free(b);
+  free(matb);
   free(fac);
   free(transp);
   free(invers);
@@ -321,33 +328,6 @@ error_t transpose(float **matrix,int n){
     free(result);
     return SUCCESS;
     
-}
-
-/**
- * @brief A function to find the transpose of a matrix. It returns a float pointer 
- * 
- * @param matrix 
- * @param n 
- * @return float** 
- */
-float ** trans(float **matrix,int n){
-float **result;
-    int i,j;
-    result = (float **)calloc(n,sizeof(float));
-    for(int i=0;i<n;i++){
-        result[i] = (float *)calloc(n,sizeof(float));
-    }
-    for (i = 0;i < n; i++)
-    {
-     for (j = 0;j < n; j++)
-       {
-         result[i][j] = matrix[j][i];
-        }
-    }
-    return result;
-    free(result);
-
-
 }
 
 /**

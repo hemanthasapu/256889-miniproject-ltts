@@ -128,6 +128,5 @@ error_t inverse(float **num, int f);
 float power(int exp);
 
 
-float ** trans(float **matrix,int n);
 
 #endif  /* #define __MATRIX_OPERATIONS_H__ */

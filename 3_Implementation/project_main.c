@@ -27,7 +27,7 @@ error_t err;
 enum opers{ DET=1,ADD,SUB,MUL,TRN,INV,EXIT };
 
 /* Display the menu of operations supported */
-void calculator_menu(void);
+void matrixcalc_menu(void);
 /* Verifies the requested operations validity */
 int oper_valid(int oper);
 
