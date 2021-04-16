@@ -15,7 +15,7 @@
 #define INVALID (0)
 
 /* Calculator operation requested by user*/
-unsigned int matrixcalc_operation = 0;
+unsigned int matrixcalc_oper = 0;
 
 /* Operands on which calculation is performed */
 int n;
@@ -23,13 +23,13 @@ mat operands;
 error_t err;
 
 
-/* Valid operations */
-enum operations{ DET=1,ADD,SUB,MUL,TRN,INV,EXIT };
+/* Valid opers */
+enum opers{ DET=1,ADD,SUB,MUL,TRN,INV,EXIT };
 
 /* Display the menu of operations supported */
 void calculator_menu(void);
 /* Verifies the requested operations validity */
-int valid_operation(int operation);
+int oper_valid(int oper);
 
 
 /* Start of the application */
@@ -60,34 +60,32 @@ void calculator_menu(void)
     printf("\n\tEnter your choice\n");
    
      // __fpurge(stdin);
-    scanf("%d", &matrixcalc_operation);
+    scanf("%d", &matrixcalc_oper);
 
-    if(EXIT == matrixcalc_operation)
+    if(EXIT == matrixcalc_oper)
     {
         printf("\nThank you. Exiting the Application\n");
         exit(0);
     }
 
-    if(INVALID != valid_operation(matrixcalc_operation))
+    if(INVALID != oper_valid(matrixcalc_oper))
     {
         printf("\n\tEnter your matrix elements with space between them\n");
 
         printf("Enter order of matrix: ");
         scanf("%d", &n);
         operands.matrix_1 = alloc_input_matrix(operands.matrix_1,n);
-        if(((matrixcalc_operation != DET )&&(matrixcalc_operation != TRN )&&(matrixcalc_operation != INV))){
+        if(((matrixcalc_oper != DET )&&(matrixcalc_oper != TRN )&&(matrixcalc_oper != INV))){
             operands.matrix_2 = alloc_input_matrix(operands.matrix_2,n);
         }
     }
     else
     {
         printf("\n\t---Wrong choice---\nEnter to continue\n");
-        // __fpurge(stdin);
-        getchar();
         return;
         
     }
-    switch(matrixcalc_operation)
+    switch(matrixcalc_oper)
     {
         case DET:
             operands.result = determinant(operands.matrix_1,n);
@@ -133,8 +131,8 @@ void calculator_menu(void)
  * @param operation 
  * @return int 
  */
-int valid_operation(int operation)
+int oper_valid(int oper)
 {
     /* Check if the operation is a valid operation */
-    return ((DET <= operation) && (EXIT >= operation)) ? VALID: INVALID;
+    return ((DET <= oper) && (EXIT >= oper)) ? VALID: INVALID;
 }

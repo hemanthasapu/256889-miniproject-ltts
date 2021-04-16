@@ -50,7 +50,7 @@ A user who is working on a laptop or a desktop who would be working on matrix ba
  * Students, employees and researchers all over the world.
 
 ## How:
- * This program can be executed in a system with Linux or Windows operating system. 
+ * This program can be executed in a system which has Linux or Windows operating system. 
 
 ## High Level Requirements: 
 | ID | Description | Category | Status | 
