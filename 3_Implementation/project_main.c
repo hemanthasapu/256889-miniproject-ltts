@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     printf("\n****WELCOME TO THE MATRIX OPERATIONS PROGRAM****\n");
     while(1)
     {
-        calculator_menu();
+        matrixcalc_menu();
     }
 }
 
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
  * @brief A basic function which has the functionalities to input the matrices and print the respective output with choice
  * 
  */
-void calculator_menu(void)
+void matrixcalc_menu(void)
 {
     printf("\nPress a key to select the appropriate operation\n");
     printf("\n1. Determinant\n2. Addition of matrices\n3. Subtraction of matrices\n4. Product of matrices\n5. Transpose of a matrix\n6. Inverse of a matrix\n7. Exit");
@@ -121,7 +121,7 @@ void calculator_menu(void)
             exit(0);
             break;
         default:
-            printf("\n\t---It should never come here---\n");
+            printf("\n\t---The code would never arrive here---\n");
     }
 }
 
@@ -133,6 +133,6 @@ void calculator_menu(void)
  */
 int oper_valid(int oper)
 {
-    /* Check if the operation is a valid operation */
+    /* Check if the operation is valid */
     return ((DET <= oper) && (EXIT >= oper)) ? VALID: INVALID;
 }
