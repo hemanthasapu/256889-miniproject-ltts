@@ -1,4 +1,4 @@
-# images and videos
+# images
 
 ## Some of the screenshots of the program testing each functionality..
 
