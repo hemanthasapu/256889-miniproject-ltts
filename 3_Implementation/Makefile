@@ -2,7 +2,7 @@
 PROJECT_NAME = Matrix_Calculator
 
 #Doxyfile folder
-DOC = doc/Matrix_calculator_Doxyfile
+DOC = doc
 
 # All source code files
 SRC = project_main.c\
@@ -39,8 +39,9 @@ all: $(SRC) $(BUILD)
 run:$(PROJECT_NAME)
 	./$(PROJECT_OUTPUT)
 
+#Documentation using doxygen
 doc: $(DOC)
-	doxygen ./$(DOC)
+	make -C $(DOC) doc
 
 # Build and run the unit tests
 test:$(BUILD)
