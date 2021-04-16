@@ -12,5 +12,3 @@
 
 ### UML Class Diagram
 ![UML class diagram](https://github.com/hemanthasapu/256889-miniproject-ltts/blob/main/2_Design/umlclassdiagram.png)
-
-![FeaturesBehaviouralDiagram](Link to Pic)
